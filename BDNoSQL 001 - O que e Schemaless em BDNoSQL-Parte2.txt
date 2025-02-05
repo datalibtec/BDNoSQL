@@ -1,0 +1,27 @@
+/*
+Arquivo.....: BDNoSQL 001 - O que e Schemaless em BDNoSQL-Parte1
+Data........: 03/02/2025
+Autor.......: Datalib Tecnologia e Treinamento em Dados (Saito)
+Copyright...: Utlização somente para fins educacionais e didaticos com autorização do autor.
+Referencias.: 
+Comentario..: Parte 1
+	      Teste de inserção de dados no SQL Server (Schema Rígido)
+	      Parte 2
+ 	      Teste de inserção de dados no mongoDB (Schemaless)
+*/
+
+
+/* Parte 2  */
+
+use Corp
+
+db.cliente.insertOne({_id: 1, data_cad:"2025-03-02", nome_cli:"ANTONIO DA SILVA", cidade:"JUNDIAI", uf:"SP"})
+db.cliente.insertOne({_id: 2, data_cad:"2025-03-02", nome_cli:"MARIA DE SOUZA", cidade:"BELO HORIZONTE", uf:"MG"})
+db.cliente.insertOne({_id: 3, data_cad:"2025-03-02", nome_cli:"ANA CAROLINA", cidade:"BUZIOS", uf:"RJ"})
+
+
+db.cliente.find()
+
+
+
+
