@@ -1,0 +1,58 @@
+/*
+Arquivo.....: BDNoSQL 300 - Insercao de
+              dados no Dados MongoDB
+Data........: 09/02/2025
+Autor.......: Datalib Tecnologia e Treinamento em Dados (Saito)
+Copyright...: Utlização somente para fins 
+              educacionais e didaticos 
+              com autorização do autor.
+Referencias.: 
+Comentario..: utilizacao da IDE RoboMongo
+*/
+
+use Corp
+
+/*collection Cliente*/
+db.Cliente.insertOne(
+    {
+        codigo: 1,
+        nome: "Antonio da Silva",
+        cidade: "São Paulo",
+        uf: "SP"
+    }   
+);
+
+/*para listar todos os registros*/
+db.Cliente.find();
+
+
+db.Fornecedor.insertOne(
+    {
+        codigo: 1,
+        fantasia: "Marcadante Autopecas",
+        razao:    "Fagundes Santos Ltda",
+        capital: 100000,
+        limite: [10000, 99999]
+    }
+
+);
+
+db.Fornecedor.find();
+
+
+db.Fornecedor.insertOne(
+    {
+        codigo: 2,
+        fantasia: "Gambety Games",
+        razao:    "Lucio M. Games Ltda",
+        capital: 10000,
+        limite: [
+                    {
+                    minimo: 1000,
+                    maximo: 9999
+                    }
+                ]
+    }
+);
+
+db.Fornecedor.find();
