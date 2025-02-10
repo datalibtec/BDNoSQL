@@ -1,0 +1,51 @@
+/*
+Arquivo.....: BDNoSQL 300 - Insercao de 
+              dados simples no MongoDB
+Data........: 09/02/2025
+Autor.......: Datalib Tecnologia e Treinamento em Dados (Saito)
+Copyright...: Utlização somente para fins 
+              educacionais e didaticos 
+              com autorização do autor.
+Referencias.: https://www.mongodb.com/pt-br/docs/manual/reference/method/Date/
+Comentario..: Utilizacao da IDE RoboMongo
+	          Studio 3T		
+*/
+
+use Corp
+
+/*collection Cliente*/
+db.Cliente.insertOne(
+    {
+        codigo: 1,
+        nome: "Antonio da Silva",
+        cidade: "São Paulo",
+        uf: "SP"
+    }   
+);
+
+/*para listar todos os registros*/
+db.Cliente.find();
+
+
+db.Cliente.insertOne(
+    {
+        codigo: 10,
+        ativo: true,
+        nome: "Ana Maria",
+        cidade: "São Jose´dos Campos",
+        uf: "SP",
+    	nascimento: new Date("2010-05-18"),
+    	salario: 2563.88
+    }
+);
+
+db.Cliente.find();
+
+
+/*
+    Gostou dessa dica?
+    Assine o nosso canal!
+    youtube.com/@datalib22
+
+*/
+
