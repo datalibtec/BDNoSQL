@@ -1,0 +1,83 @@
+/*
+Arquivo.....: BDNoSQL 310 - Insercao de 
+              dados complexos no MongoDB
+Data........: 11/02/2025
+Autor.......: Datalib Tecnologia e Treinamento em Dados (Saito)
+Copyright...: Utlização somente para fins 
+              educacionais e didaticos 
+              com autorização do autor.
+Referencias.: 
+Comentario..: Utilizacao da IDE RoboMongo
+    	      Studio 3T		
+*/
+
+use Corp
+
+/*collection Produto*/
+
+//exemplo1
+db.Produto.insertOne(
+    {
+        codigo: 1,
+        descricao: "camisa xadrez",
+        tamanho: "M",
+        cor: ["branco","preto"],
+        preco_custo: 42.55,
+        preco_atacado: 59.90,
+        preco_varejo: 68.85
+    }   
+);
+
+/*para listar todos os registros*/
+db.Produto.find();
+
+//exemplo2
+db.Produto.insertOne(
+    {
+        codigo: 2,
+        descricao: "camisa manga longa",
+        tamanho: "G",
+        cor: ["azul","branco"],
+        preco: {
+            custo: 42.55,
+            atacado: 59.90,
+            varejo: 68.85
+        }
+    }   
+);
+db.Produto.find();
+
+
+//exemplo3
+db.Produto.insertOne(
+    {
+        codigo: 3,        
+        descricao: "camisa polo",
+        cor: ["cinza"],
+        preco: [
+            {
+                tamanho: "P", 
+                custo: 42.55,
+                atacado: 59.90,
+                varejo: 68.85
+            },
+            {
+                tamanho: "M", 
+                custo: 45.99,
+                atacado: 56.32,
+                varejo: 68.76
+            }
+        ]
+    }   
+);
+
+
+db.Produto.find();
+
+
+/*
+    Gostou dessa dica?
+    Assine o nosso canal!
+    youtube.com/@datalib22
+*/
+
