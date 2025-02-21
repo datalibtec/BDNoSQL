@@ -1,0 +1,80 @@
+/*
+Arquivo.....: BDNoSQL 330 - Consultas 
+              complexas de dados no MongoDB
+Data........: 20/02/2025
+Autor.......: Datalib Tecnologia e Treinamento em Dados (Saito)
+Copyright...: Utlização somente para fins 
+              educacionais e didaticos 
+              com autorização do autor.
+Referencias.: https://www.mongodb.com/pt-br/docs/manual/tutorial/query-arrays/
+Comentario..: Utilizacao da IDE RoboMongo
+    	      Studio 3T		
+*/
+
+use Corp
+
+//collection Produto - inserção simples
+
+db.Produto.insertOne(
+    {
+        codigo: 100,
+        descricao: "camisa",
+        tamanho: "M",
+        cor: ["branco","preto"],
+        preco_custo: 10.99
+    }   
+);
+
+db.Produto.insertOne(
+    {
+        codigo: 200,
+        descricao: "bermuda",
+        tamanho: "G",
+        cor: ["cinza","branco"],
+        preco_custo: 15.50
+    }   
+);
+
+db.Produto.insertOne(
+    {
+        codigo: 300,
+        descricao: "calça",
+        tamanho: "P",
+        cor: ["amarelo"],
+        preco_custo: 87.50
+    }   
+);
+
+
+//preco_custo entre 10 e 20
+db.Produto.find(
+    {
+        preco_custo : {$gte:10, $lte:20}
+    }
+);
+
+
+//codigo igual a 100 e preço_custo >= 10
+db.Produto.find(
+    {
+        codigo : {$eq: 100},
+        preco_custo : {$gte:10}
+    }
+);
+
+
+//elemento cor tem que ser branco
+db.Produto.find(
+    {
+        cor: "branco"
+    }
+);
+
+
+
+/*
+    Gostou dessa dica?
+    Assine o nosso canal!
+    youtube.com/@datalib22
+*/
+
