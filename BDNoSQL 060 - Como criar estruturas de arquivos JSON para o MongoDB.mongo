@@ -1,0 +1,92 @@
+/*
+Arquivo.....: BDNoSQL 060 - BDNoSQL 060 - Como criar estruturas de arquivos JSON para o MongoDB
+Data........: 10/03/2025
+Autor.......: Datalib Tecnologia e Treinamento em Dados (Saito)
+Copyright...: Utlização somente para fins educacionais e didaticos com autorização do autor.
+Referencias.: 
+Comentario..: Utilizacao da IDE MongoDB Compass
+*/
+
+
+use Corp
+
+//Inserção dos dados
+
+db.cliente.insertOne ( {
+	nome : "Joe",
+	idade : 25,
+	telefone : ["555-666-7777", "444-789-1234"],
+	enderecoResidencial : "Sycamore Avenue, 999, San Francisco, 95046",
+	enderecoComercial : "Bailey Avenue, 52, San Jose, 95141"
+})
+
+
+db.cliente.insertOne ( {
+	nome : "Joe",
+	idade : 25,
+	telefone : ["555-666-7777", "444-789-1234"],
+	enderecoResidencial :
+		{ logradouro : "Sycamore Avenue",
+		cidade : "Gilroy",
+		cep : "95046" 
+		},
+	enderecoComercial:
+		{ logradouro : "Bailey Avenue",
+		cidade : "San Jose",
+		cep : "95141"
+		}
+})
+
+
+db.cliente.insertOne ( {
+	nome : "Mary",
+	idade : 30,
+	telefone : ["111-222-3333", "555-123-4567"],
+	enderecoResidencial :
+		{ logradouro : "Wall Street Avenue",
+		cidade : "New York",
+		cep : "88765" 
+		},
+	enderecoComercial:
+		{ logradouro : "Bailey Avenue",
+		cidade : "San Jose",
+		cep : "95141"
+		}
+})
+
+
+//Procura dos dados sem nenhum filtro
+db.cliente.find()
+
+//Procuira dados somente com o campo _id e nome
+db.cliente.find( {}, {nome : 1} )
+
+//Procura dados sem _id, somente com nome
+db.cliente.find( {}, {_id : 0, nome : 1} )
+
+//Procura dados com o nível do enderecoResidencial para baixo
+db.cliente.find( {}, {_id : 0, enderecoResidencial : 1} )
+
+//sem resultado, pois está em nivel
+db.cliente.find( {}, {_id : 0, cidade : 1} )
+
+//Procura dados somente especificando cidade
+db.cliente.find( {}, {_id : 0, "enderecoResidencial.cidade" : 1} )
+
+//Procura dados especificando cidade e cep
+db.cliente.find( {}, {_id : 0, "enderecoResidencial.cidade" : 1, "enderecoResidencial.cep" : 1} )
+
+
+
+
+/*
+    Gostou dessa dica?
+    Curta o nosso video e 
+    assine o nosso canal!
+
+    obrigado!
+
+    youtube.com/@datalib22
+
+*/
+
